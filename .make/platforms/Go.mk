@@ -41,7 +41,7 @@ go-install:
 	go install $(V) $(LDFLAGS) ./...
 
 # Adds all Go tidy activities.
-go-tidy: go.mod go-tidy-1-16 go-mod-tidy-17
+go-tidy: go.mod go-tidy-1-16 go-tidy-1-17
 #	go mod tidy
 #	go mod tidy -compat=`go version | { read _ _ v _; echo ${v#go}; }`
 
