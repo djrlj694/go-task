@@ -1,0 +1,49 @@
+environments:
+  default: &env_default
+    debug: yes
+    verbose: yes
+    source: "dev/source.dat"
+    target: DBDEV
+  development: *env_default
+  test: *env_default
+  stage:
+    <<: *env_default
+    source: "prod/source.dat"
+    target: DBPROD
+  production:
+    <<: *env_default
+    source: "prod/source.dat"
+    target: DBPROD
+
+tasks:
+  pre:
+    commands:
+    - echo -n $(date +'%F %T') "[INFO]:" "Running task {{.Name}}..." >> task.log
+  post:
+    commands:
+    - echo "done." >> task.log
+  extract:
+    description: Data extraction task.
+    commands:
+    - echo "Hello, ${USER}!"
+    - echo "We extracted data from file '{{.Parameters.Environment.source}}'."
+  transform:
+    description: Data transformation task.
+    commands:
+    - echo "Hi again, ${USER}!"
+    - echo "We transformed the extracted data."
+  load:
+    description: Data loading task.
+    commands:
+    - echo "Goodbye, ${USER}!"
+    - echo "We loaded the transformed data to database '{{.Parameters.Environment.target}}'."
+
+pipelines:
+  etl1:
+  - extract
+  - transform
+  - load
+  etl2:
+  - extract
+  - transform
+  - load
