@@ -1,10 +1,24 @@
-// Copyright 2022 The Task Authors. All rights reserved.
-// Use of this source code is governed by a MIT-style
-// license that can be found in the LICENSE file.
+// ============================================================================
+// Copyright © 2022 | All rights reserved.
+// ============================================================================
+// PROGRAM: config.go
+// PROJECT: Task
+// COMPANY: djrlj694.dev
+// LICENSE: MIT
+//
+// PURPOSE:
+// - To model a configuration file for orchestrating tasks.
+//
+// AUTHORS:
+// - Robert (Bob) L. Jones
+//
+// CREATED: Jan 02, 2022
+// REVISED: Jan 02, 2022
+// ============================================================================
 
 // Model a configuration file for orchestrating tasks.
 
-// task: A package that provides primitives for orchestrating tasks.
+// task: Package to provide primitives for orchestrating tasks.
 package task
 
 import (
@@ -15,8 +29,7 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-// Config: A struct that models the configuration file read by the `task`
-// command.
+// Config: Struct to model the configuration file read by the `task` command.
 type Config struct {
 	Globals      map[string]string            `yaml:"globals"`
 	Environments map[string]map[string]string `yaml:"environments"`
@@ -27,7 +40,7 @@ type Config struct {
 
 // Utility Methods
 
-// Read: A method that reads a YAML file to instantiate a configuration.
+// Read: Method to read a YAML file to instantiate a configuration.
 func (c *Config) Read(path string) {
 	absPath, err := filepath.Abs(os.ExpandEnv(path))
 	Check(err)

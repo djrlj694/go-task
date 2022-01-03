@@ -1,3 +1,22 @@
+// ============================================================================
+// Copyright © 2022 | All rights reserved.
+// ============================================================================
+// PROGRAM: task_test.go
+// PROJECT: Task
+// COMPANY: djrlj694.dev
+// LICENSE: MIT
+//
+// PURPOSE:
+// - To test the struct `Task`.
+//
+// AUTHORS:
+// - Robert (Bob) L. Jones
+//
+// CREATED: Jan 02, 2022
+// REVISED: Jan 02, 2022
+// ============================================================================
+
+// task: Provides primitives for orchestrating tasks.
 package task
 
 import (
@@ -9,7 +28,7 @@ import (
 
 // Constructor Method Tests
 
-// TestTask: A function that tests the struct `Task`.
+// TestTask: Function to test the struct `Task`.
 func TestTask(t *testing.T) {
 
 	// An immediately-invoked function expression (IIFE) for testing if 2

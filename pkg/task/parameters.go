@@ -1,13 +1,25 @@
-// Copyright 2022 The Task Authors. All rights reserved.
-// Use of this source code is governed by a MIT-style
-// license that can be found in the LICENSE file.
+// ============================================================================
+// Copyright © 2022 | All rights reserved.
+// ============================================================================
+// PROGRAM: config.go
+// PROJECT: Task
+// COMPANY: djrlj694.dev
+// LICENSE: MIT
+//
+// PURPOSE:
+// - To model a task's parameters.
+//
+// AUTHORS:
+// - Robert (Bob) L. Jones
+//
+// CREATED: Jan 02, 2022
+// REVISED: Jan 02, 2022
+// ============================================================================
 
-// Model a task's. parameters
-
-// task: A package that provides primitives for orchestrating tasks.
+// task: Package to provide primitives for orchestrating tasks.
 package task
 
-// Parameters: A struct that models parameters associated with a task.
+// Parameters: Struct to model parameters associated with a task.
 type Parameters struct {
 	Global      map[string]string
 	Environment map[string]string
