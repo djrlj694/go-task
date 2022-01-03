@@ -98,7 +98,7 @@ build: build-go
 clean: clean-go
 
 ## test: Completes all test activities.
-test: test-task
+test: test-go test-task
 
 
 # =========================================================================== #
