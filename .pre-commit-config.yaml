@@ -8,7 +8,7 @@ repos:
   # - id: check-builtin-literals
   # - id: check-docstring-first
   # - id: check-executables-have-shebangs
-  # - id: check-json
+  - id: check-json
   - id: check-merge-conflict
   # - id: check-toml
   # - id: check-xml
@@ -18,8 +18,8 @@ repos:
   # - id: double-quote-string-fixer
   - id: end-of-file-fixer
   # - id: name-tests-test
-  # - id: pretty-format-json
-  #   args: [--autofix, --no-sort-keys]
+  - id: pretty-format-json
+    args: [--autofix, --no-sort-keys]
   # - id: requirements-txt-fixer
   # - id: sort-simple-yaml
   - id: trailing-whitespace
@@ -33,19 +33,19 @@ repos:
   hooks:
   - id: check-hooks-apply
   - id: check-useless-excludes
-# - repo: https://github.com/dnephin/pre-commit-golang
-#   rev: v0.4.0
-#   hooks:
-#   - id: go-cyclo
-#     args: [-over=15]
-#   - id: go-build
-#   - id: go-critic
-#   - id: go-fmt
-#   - id: go-vet
-#   - id: go-imports
-#   - id: go-lint
-#   - id: go-mod-tidy
-#   - id: go-unit-tests
-#   - id: golangci-lint
-#   - id: no-go-testing
-#   - id: validate-toml
+- repo: https://github.com/dnephin/pre-commit-golang
+  rev: v0.4.0
+  hooks:
+  - id: go-cyclo
+    args: [-over=15]
+  - id: go-build
+  - id: go-critic
+  - id: go-fmt
+  # - id: go-vet
+  - id: go-imports
+  # - id: go-lint
+  - id: go-mod-tidy
+  - id: go-unit-tests
+  - id: golangci-lint
+  # - id: no-go-testing
+  # - id: validate-toml

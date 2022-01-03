@@ -25,7 +25,7 @@
 
 # -- Prerequisites for "build" Target -- #
 
-.PHONY: build-go go-format go-install go-tidy
+.PHONY: build-go go-format go-install go-tidy go-tidy-1-16 go-mod-tidy-17
 
 # Completes all Go build activities.
 build-go: go-tidy go-format go-install
@@ -41,7 +41,7 @@ go-install:
 	go install $(V) $(LDFLAGS) ./...
 
 # Adds all Go tidy activities.
-go-tidy: go.mod go-tidy-1-16 go mod tidy -compat=1.17
+go-tidy: go.mod go-tidy-1-16 go-tidy-1-17
 #	go mod tidy
 #	go mod tidy -compat=`go version | { read _ _ v _; echo ${v#go}; }`
 
