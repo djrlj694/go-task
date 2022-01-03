@@ -41,9 +41,9 @@ repos:
   - id: go-build
   - id: go-critic
   - id: go-fmt
-  - id: go-vet
+  # - id: go-vet
   - id: go-imports
-  - id: go-lint
+  # - id: go-lint
   - id: go-mod-tidy
   - id: go-unit-tests
   - id: golangci-lint
