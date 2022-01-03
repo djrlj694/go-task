@@ -20,7 +20,6 @@
 package main
 
 import (
-	"encoding/json"
 	"os"
 	"task/pkg/task"
 
@@ -86,9 +85,9 @@ func action(context *cli.Context) error {
 	var config task.Config
 	config.Read(context.String("config"))
 
-	var data map[string]interface{}
-	err := json.Unmarshal([]byte(context.String("data")), &data)
-	task.Check(err)
+	// var data map[string]interface{}
+	// err := json.Unmarshal([]byte(context.String("data")), &data)
+	// task.Check(err)
 
 	global := config.Globals
 	environment := config.Environments[context.String("environment")]
