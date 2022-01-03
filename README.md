@@ -99,14 +99,14 @@ Files in this project are organized as follows:
 ├── .editorconfig
 ├── .gitattributes
 ├── .gitignore
-├── .make
+├── .make/
 │   ├── features/
 │   │   ├── formatting.mk
 │   │   └── helping.mk
 │   ├── platforms/
 │   │   ├── Go.mk
 │   │   └── Python.mk
-│   └── test
+│   └── test/
 │       └── task.mk
 ├── .pre-commit-config.yaml
 ├── .vscode/
@@ -114,7 +114,24 @@ Files in this project are organized as follows:
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── README.md
-└── REFERENCES.md
+├── REFERENCES.md
+├── cmd/
+│   └── task/
+│       └── main.go
+├── examples/
+│   ├── sample.etl.yml
+│   └── sample.hello.yml
+├── go.mod
+├── go.sum
+└── pkg/
+    └── task/
+        ├── config.go
+        ├── data.go
+        ├── file.go
+        ├── parameters.go
+        ├── task.go
+        ├── task_test.go
+        └── utils.go
 ```
 
 ## Builds and Testing
