@@ -1,10 +1,22 @@
-// Copyright 2022 The Task Authors. All rights reserved.
-// Use of this source code is governed by a MIT-style
-// license that can be found in the LICENSE file.
+// ============================================================================
+// Copyright © 2022 | All rights reserved.
+// ============================================================================
+// PROGRAM: task_test.go
+// PROJECT: Task
+// COMPANY: djrlj694.dev
+// LICENSE: MIT
+//
+// PURPOSE:
+// - To model a task.
+//
+// AUTHORS:
+// - Robert (Bob) L. Jones
+//
+// CREATED: Jan 02, 2022
+// REVISED: Jan 02, 2022
+// ============================================================================
 
-// Model a task.
-
-// task: A package task provides primitives for orchestrating tasks.
+// task: Package to provide primitives for orchestrating tasks.
 package task
 
 import (
@@ -16,7 +28,7 @@ import (
 
 // Types
 
-// Task: A struct that models commands to execute.
+// Task: Struct to model commands to execute.
 type Task struct {
 	Name        string
 	Description string
@@ -26,7 +38,7 @@ type Task struct {
 
 // Public Methods
 
-// Run: A method that runs a task's commands.
+// Run: Method to run a task's commands.
 func (t *Task) Run(data Task) {
 	for _, rawCmd := range t.Commands {
 		renderedCmd := render(rawCmd, data)
@@ -36,7 +48,7 @@ func (t *Task) Run(data Task) {
 
 // Private Utility Functions
 
-// render: A method that renders a template to a string.
+// render: Function to render a template to a string.
 func render(pattern string, data Task) string {
 	var buffer bytes.Buffer
 
@@ -49,7 +61,7 @@ func render(pattern string, data Task) string {
 	return buffer.String()
 }
 
-// run: A method that runs a command.
+// run: Function to run a command.
 func run(cmdString string) {
 	var out bytes.Buffer
 
