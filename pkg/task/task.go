@@ -34,9 +34,9 @@ func (t *Task) Run(data Task) {
 	}
 }
 
-// Private Methods
+// Private Utility Functions
 
-// render: A method that renders a template to a street.
+// render: A method that renders a template to a string.
 func render(pattern string, data Task) string {
 	var buffer bytes.Buffer
 
