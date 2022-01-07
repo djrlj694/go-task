@@ -20,16 +20,17 @@ application that loads data from a flat file to an Oracle database and then
 processes that data.
 
 ```bash
-echo
-${TAR}
-echo
+echo -n "Extracting data..." >> "${HOME}/data_pipeline_01/logs/elt-${YYYYMMDD}.log"
+wget -c http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz -O - | ${TAR} -xz -C "${HOME}/data_pipeline_01/data/incoming/GeoLite2-Country-${YYYYMMDD}.csv"
+[ $? -eq 0 ] echo "done." || echo "fail."
 
-echo
-sqlldr
+echo -n "Loading data..." >> "${HOME}/data_pipeline_01/logs/load.log"
+sqlldr userid=$(cat "${HOME}/data_pipeline_01/.oracle_db.txt"), parfile="${HOME}/data_pipeline_01/etc/oracle_db.par", data="${HOME}/data_pipeline_01/data/incoming/GeoLite2-Country-${YYYYMMDD}.csv"
+[ $? -eq 0 ] echo "done." || echo "fail."
 
-echo
-sqlplus
-echo
+echo -n "Transforming data..." >> "${HOME}/data_pipeline_01/logs/load.log"
+sqlplus $(cat "${HOME}/data_pipeline_01/.oracle_db.txt") @"${HOME}/data_pipeline_01/src/oracle_etl.sql"
+[ $? -eq 0 ] echo "done." || echo "fail."
 ```
 
 Let's look at this program from the perspective of our problems list:
